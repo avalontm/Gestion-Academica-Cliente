@@ -4,6 +4,8 @@ using Avalonia.iOS;
 using Avalonia.Media;
 using Avalonia.ReactiveUI;
 using Foundation;
+using Plugin.Firebase.CloudMessaging;
+using Plugin.Firebase.Core.Platforms.iOS;
 using UIKit;
 
 namespace agac.iOS
@@ -16,7 +18,12 @@ namespace agac.iOS
     {
         protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
         {
+            CrossFirebase.Initialize();
+            FirebaseCloudMessagingImplementation.Initialize();
+
             return builder.UseReactiveUI();
         }
+
+    
     }
 }

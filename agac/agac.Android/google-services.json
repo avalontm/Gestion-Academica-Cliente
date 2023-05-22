@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371072270601",
+    "project_id": "sgac-79205",
+    "storage_bucket": "sgac-79205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371072270601:android:6335e146fcf4a5b594d3d8",
+        "android_client_info": {
+          "package_name": "com.avalontm.agac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371072270601-frud6bbian9qj35k6igdlj8924aqosh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpE7rCl_i79MGNftkVTVqOCryWnzz0Wkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371072270601-frud6bbian9qj35k6igdlj8924aqosh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
