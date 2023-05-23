@@ -1,0 +1,47 @@
+<page:PageControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:page="using:agac.Controls"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+             x:Class="agac.Views.TareasPage.TareasMainView"
+			 Title="Tareas" x:Name="root">
+
+	<Grid>
+		<ScrollViewer Grid.Row="4" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+			<Grid>
+				<ItemsControl Items="{Binding tareas}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<Button Height="64" Margin="5" Command="{Binding ElementName=root, Path=onTarea}" CommandParameter="{Binding }" Background="{StaticResource GrayLight}" CornerRadius="5" HorizontalAlignment="Stretch" BorderBrush="{StaticResource GrayBorder}" BorderThickness="1">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+
+									<Grid Grid.Column="0">
+										<Image Margin="5" Source="/Assets/icon_ingresar.png" Height="32" Width="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+									</Grid>
+
+									<Grid Grid.Column="1">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+
+										<Label Grid.Row="0" Content="{Binding titulo}" FontWeight="Bold" FontSize="18" Foreground="{StaticResource Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+										<Label Grid.Row="1" Content="{Binding fecha_entrega}" FontWeight="Normal" FontSize="14" Foreground="{StaticResource Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+
+									</Grid>
+								</Grid>
+							</Button>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</Grid>
+
+		</ScrollViewer>
+	</Grid>
+</page:PageControl>

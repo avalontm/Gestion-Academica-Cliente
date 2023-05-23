@@ -75,6 +75,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
     public MainViewControl()
     {
         InitializeComponent();
+        Instance = this;
         DataContext = this;
     }
 
@@ -88,7 +89,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
 
     protected override void OnUnloaded()
     {
-        Instance = this;
+        Instance = null;
         base.OnUnloaded();
     }
 

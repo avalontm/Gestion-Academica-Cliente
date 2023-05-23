@@ -1,6 +1,8 @@
 using agac.ApiController;
 using agac.Controls;
+using agac.Managers;
 using agac.Models;
+using agac.Views.TallerPage;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -49,15 +51,11 @@ public partial class CursosMainView : PageControl
 
     public async void onCurso(object obj)
     {
-        CursoModel curso = obj as CursoModel;
+        CursoModel item = obj as CursoModel;
 
-        await DialogManager.Show();
-        var talleres = await ApiTaller.Get(curso.codigo);
-        await DialogManager.Close();
+        TalleresMainView page = new TalleresMainView();
+        page.curso = item;
 
-        foreach (var taller in talleres)
-        {
-            Debug.WriteLine($"[taller] {taller.nombre}");
-        }
+        await AppManager.ToNatigate(page);
     }
 }

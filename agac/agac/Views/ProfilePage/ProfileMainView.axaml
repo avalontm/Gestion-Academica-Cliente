@@ -5,7 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
 		     xmlns:page="using:agac.Controls"
              x:Class="agac.Views.ProfilePage.ProfileMainView"
-			Title="Mi Perfil">
+			 Title="Mi Perfil">
 	
 
 </page:PageControl>

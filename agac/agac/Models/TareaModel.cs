@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace agac.Models
 {
-    public class TallerModel
+    public class TareaModel
     {
         public string? codigo { set; get; }
-        public string? nombre { set; get; }
+        public string? titulo { set; get; }
+        public DateTime fecha_entrega { set; get; }
+        public string? contenido { set; get; }
+        public int limite { set; get; }
         public bool activo { set; get; }
     }
 }
