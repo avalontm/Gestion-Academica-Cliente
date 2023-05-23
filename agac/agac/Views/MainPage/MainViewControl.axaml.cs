@@ -1,4 +1,6 @@
 using agac.Controls;
+using agac.Managers;
+using agac.Models;
 using agac.Views.CursosPage;
 using agac.Views.HomePage;
 using agac.Views.ProfilePage;
@@ -57,6 +59,17 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         }
     }
 
+    UserModel _user;
+    public UserModel User
+    {
+        get { return _user; }
+        set
+        {
+            _user = value;
+            OnPropertyChanged("User");
+        }
+    }
+
     public static MainViewControl? Instance { private set; get; }
 
     public MainViewControl()
@@ -68,6 +81,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
     protected override void OnLoaded()
     {
         Instance = this;
+        User = SesionManager.user;
         ToNavigate(new HomeMainView());
         base.OnLoaded();
     }

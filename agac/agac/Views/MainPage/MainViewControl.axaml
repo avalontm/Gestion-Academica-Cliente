@@ -2,9 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:dic="clr-namespace:agac.Dictionaries"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
              x:Class="agac.Views.MainPage.MainViewControl">
 
+	<UserControl.Resources>
+		<dic:ImageFromUrlConvert x:Key="ImageFromUrlConvert"/>
+	</UserControl.Resources>
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="48"/>
@@ -76,7 +81,13 @@
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 
-							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_menu.png" Height="28"/>
+								<Image Grid.Row="0" Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="28" RenderOptions.BitmapInterpolationMode="HighQuality">
+									<Image.Clip>
+										<EllipseGeometry Rect="0,0,28,28" />
+									</Image.Clip>
+								</Image>
+							
+							
 							<Label Grid.Row="1" Margin="0" Content="Mi Perfil" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
 						</Grid>
 					</Button.Content>
