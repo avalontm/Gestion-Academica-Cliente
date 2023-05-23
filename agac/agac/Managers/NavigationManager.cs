@@ -42,6 +42,7 @@ namespace agac.Managers
         public void SetRoot(PageControl page)
         {
             root = page;
+            Clear();
         }
 
         public void Clear()

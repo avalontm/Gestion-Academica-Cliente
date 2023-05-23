@@ -119,4 +119,8 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         await Task.Delay(10);
     }
 
+    public async void onBack()
+    {
+        await AppManager.ToBack();
+    }
 }

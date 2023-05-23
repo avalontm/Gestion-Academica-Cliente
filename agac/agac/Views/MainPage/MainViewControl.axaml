@@ -3,10 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:dic="clr-namespace:agac.Dictionaries"
+			 xmlns:manager="clr-namespace:agac.Managers"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
              x:Class="agac.Views.MainPage.MainViewControl">
 
 	<UserControl.Resources>
+		<dic:MenuBackVisibleToConverter x:Key="MenuBackVisibleToConverter"/>
 		<dic:ImageFromUrlConvert x:Key="ImageFromUrlConvert"/>
 	</UserControl.Resources>
 	
@@ -20,11 +22,20 @@
 		<!-- NAVEGACION -->
 		<Grid Grid.Row="0" Background="{StaticResource MenuBackground}">
 			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="Auto"/>
 			</Grid.ColumnDefinitions>
 
-			<Label Margin="5,0,5,0" Content="{Binding Title, FallbackValue='Titulo'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" FontWeight="Bold"/>
+			<Button Margin="5" IsVisible="{Binding Source={x:Static manager:AppManager.navManager}, Path=Count, Mode=TwoWay, Converter={StaticResource MenuBackVisibleToConverter}}" Grid.Column="0" Background="Transparent" Command="{Binding onBack}" Cursor="Hand" >
+				<Image Source="/Assets/icon_back.png" Height="28" Width="28"/>
+			</Button>
+			
+			<Label Grid.Column="1" Margin="5,0,5,0" Content="{Binding Title, FallbackValue='Titulo'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" FontWeight="Bold"/>
+
+			<Grid Grid.Column="2">
+				
+			</Grid>
 		</Grid>
 
 		<!-- PANTALLA PRINCIPAL-->

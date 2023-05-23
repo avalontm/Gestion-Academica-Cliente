@@ -26,7 +26,6 @@ namespace agac.Managers
             if (root)
             {
                 navManager.SetRoot(page);
-                navManager.Clear();
             }
             else
             {

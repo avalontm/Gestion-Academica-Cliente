@@ -12,6 +12,7 @@
 
   
   <ItemGroup>
+    <None Remove="Assets\icon_back.png" />
     <None Remove="Assets\icon_calendario.png" />
     <None Remove="Assets\icon_candado.png" />
     <None Remove="Assets\icon_curso.png" />
