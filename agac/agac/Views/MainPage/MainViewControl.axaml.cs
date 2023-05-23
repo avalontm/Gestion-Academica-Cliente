@@ -1,8 +1,12 @@
 using agac.Controls;
+using agac.Views.CursosPage;
+using agac.Views.HomePage;
+using agac.Views.ProfilePage;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace agac.Views.MainPage;
 
@@ -64,6 +68,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
     protected override void OnLoaded()
     {
         Instance = this;
+        ToNavigate(new HomeMainView());
         base.OnLoaded();
     }
 
@@ -79,4 +84,24 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         gridMain.Children.Clear();
         gridMain.Children.Add(control);
     }
+
+
+    public async void MenuCalendar()
+    {
+        ToNavigate(new HomeMainView());
+        await Task.Delay(10);
+    }
+
+    public async void MenuCursos()
+    {
+        ToNavigate(new CursosMainView());
+        await Task.Delay(10);
+    }
+
+    public async void MenuPropile()
+    {
+        ToNavigate(new ProfileMainView());
+        await Task.Delay(10);
+    }
+
 }

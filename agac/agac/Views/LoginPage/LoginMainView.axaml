@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+             x:Class="agac.Views.LoginPage.LoginMainView">
+
+	<Grid>
+		<StackPanel Margin="0,55,0,0" VerticalAlignment="Top" MaxWidth="600">
+			<Image
+				 Source="/Assets/logo.png"
+				 Height="128"
+				 HorizontalAlignment="Center" />
+
+			<Label
+					Content="Iniciar sesion"
+					FontSize="32"
+					HorizontalContentAlignment="Center" />
+
+			<Border Margin="5" Height="50" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Image Grid.Column="0" Margin="5" Source="/Assets/icon_email.png" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+					<TextBox Grid.Column="1" x:Name="txtEmail" Margin="5" BorderBrush="Transparent" BorderThickness="0" Text="{Binding email}" KeyDown="onKeyEnter" FontSize="14" Watermark="Correo Electronico" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextInputOptions.ContentType="Email"/>
+
+				</Grid>
+			</Border>
+
+			<Border Margin="5" Height="50" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Image Grid.Column="0" Margin="5" Source="/Assets/icon_candado.png" Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+					<TextBox Grid.Column="1" x:Name="txtPassword" Margin="5" BorderBrush="Transparent" BorderThickness="0" Text="{Binding password}" KeyDown="onKeyEnter" FontSize="14" Watermark="Contraseña" PasswordChar="*" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  TextInputOptions.ContentType="Password"/>
+
+				</Grid>
+			</Border>
+
+			<Button Margin="5" Height="42" Cursor="Hand" Content="Acceder" Command="{Binding LoginCommand}" Foreground="White" Background="Black" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+		</StackPanel>
+	</Grid>
+
+</UserControl>

@@ -4,9 +4,86 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
              x:Class="agac.Views.MainPage.MainViewControl">
-	
+
 	<Grid>
-		<Grid x:Name="gridMain"/>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="48"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="48"/>
+		</Grid.RowDefinitions>
+
+		<!-- NAVEGACION -->
+		<Grid Grid.Row="0" Background="{StaticResource MenuBackground}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+			<Label Margin="5,0,5,0" Content="{Binding Title, FallbackValue='Titulo'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" FontWeight="Bold"/>
+		</Grid>
+
+		<!-- PANTALLA PRINCIPAL-->
+		<Grid Grid.Row="1" x:Name="gridMain"/>
+
+		<!-- MENUS -->
+		<Grid Grid.Row="2" Background="{StaticResource MenuBackground}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Grid Grid.Column="0">
+				<Button Margin="2" Command="{Binding MenuCalendar}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<Button.Content>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_calendario.png" Height="28"/>
+							<Label Grid.Row="1" Margin="0" Content="Calendario" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+
+						</Grid>
+					</Button.Content>
+				</Button>
+			</Grid>
+
+			<Grid Grid.Column="1">
+				<Button Margin="2" Command="{Binding MenuCursos}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<Button.Content>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_curso.png" Height="28"/>
+							<Label Grid.Row="1" Margin="0" Content="Mis Cursos" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+
+						</Grid>
+					</Button.Content>
+				</Button>
+			</Grid>
+
+			<Grid Grid.Column="2">
+				<Button Margin="2" Command="{Binding MenuPropile}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<Button.Content>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_menu.png" Height="28"/>
+							<Label Grid.Row="1" Margin="0" Content="Mi Perfil" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+						</Grid>
+					</Button.Content>
+				</Button>
+			</Grid>
+
+		</Grid>
 	</Grid>
 	
 </UserControl>

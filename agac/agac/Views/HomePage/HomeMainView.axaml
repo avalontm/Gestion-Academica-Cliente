@@ -1,17 +1,13 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<page:PageControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		     xmlns:page="using:agac.Controls"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
-             x:Class="agac.Views.LoadingView">
+             x:Class="agac.Views.HomePage.HomeMainView"
+		     Title="Calendario">
 
 	<Grid>
-		<StackPanel VerticalAlignment="Center" MaxWidth="600">
-			<Image x:Name="imgLogo"
-				 Source="/Assets/logo.png"
-				 Height="200"
-				 HorizontalAlignment="Center" />
-		</StackPanel>
+
 	</Grid>
-	
-</UserControl>
+</page:PageControl>

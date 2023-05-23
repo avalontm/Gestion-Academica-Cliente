@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:agac.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="agac.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="agac">
+        Icon="/Assets/logo_icon.ico"
+        Title="Gestion Academica">
         <views:MainView />
 </Window>

@@ -1,9 +1,10 @@
 using Avalonia.Controls;
+using System.ComponentModel;
 
 namespace agac.Views
 {
     public partial class MainView : UserControl
-    {
+    { 
         public static MainView? Instance { get; private set; }
 
         public MainView()

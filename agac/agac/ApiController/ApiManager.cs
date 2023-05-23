@@ -7,18 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agac.ApiController
+namespace agac
 {
     public static class ApiManager
     {
 #if DEBUG
-        public readonly static string HOST = "http://192.168.1.104"; //"http://192.168.1.241:8080";
+        public readonly static string HOST = "https://avalontm.info"; //"http://192.168.1.13";
 #else
-        public readonly static string HOST = "http://mollusca.com.mx";
+        public readonly static string HOST = "https://avalontm.info";
 #endif
-
-        static WebClientManager _delivery;
-        public static WebClientManager delivery => _delivery ?? (_delivery = new WebClientManager(string.Format("{0}/delivery", HOST)));
 
         static WebClientManager _client;
         public static WebClientManager client => _client ?? (_client = new WebClientManager(string.Format("{0}/api", HOST)));
@@ -49,7 +46,6 @@ namespace agac.ApiController
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[onAuth] {ex}");
                 return null;
             }
         }
