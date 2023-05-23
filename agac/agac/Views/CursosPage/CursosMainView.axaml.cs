@@ -47,10 +47,17 @@ public partial class CursosMainView : PageControl
         await DialogManager.Close();
     }
 
-    public void onCurso(object obj)
+    public async void onCurso(object obj)
     {
         CursoModel curso = obj as CursoModel;
 
-        Debug.WriteLine($"[Curso] {curso.nombre}");
+        await DialogManager.Show();
+        var talleres = await ApiTaller.Get(curso.codigo);
+        await DialogManager.Close();
+
+        foreach (var taller in talleres)
+        {
+            Debug.WriteLine($"[taller] {taller.nombre}");
+        }
     }
 }
