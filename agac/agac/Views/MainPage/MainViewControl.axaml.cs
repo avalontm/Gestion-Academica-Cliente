@@ -83,7 +83,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
     {
         Instance = this;
         User = SesionManager.user;
-        ToNavigate(new HomeMainView());
+        MenuCalendar();
         base.OnLoaded();
     }
 
@@ -103,20 +103,17 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
 
     public async void MenuCalendar()
     {
-        ToNavigate(new HomeMainView());
-        await Task.Delay(10);
+        await AppManager.ToNatigate(new HomeMainView(), true);
     }
 
     public async void MenuCursos()
     {
-        ToNavigate(new CursosMainView());
-        await Task.Delay(10);
+        await AppManager.ToNatigate(new CursosMainView(), true);
     }
 
     public async void MenuPropile()
     {
-        ToNavigate(new ProfileMainView());
-        await Task.Delay(10);
+        await AppManager.ToNatigate(new ProfileMainView(), true);
     }
 
     public async void onBack()
