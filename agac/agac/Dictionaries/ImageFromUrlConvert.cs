@@ -17,7 +17,7 @@ namespace agac.Dictionaries
         {
             string _url = value?.ToString() ?? "";
             string _default = parameter?.ToString() ?? "";
-
+            Debug.WriteLine($"[ImageFromUrlConvert] {_url}");
             if (string.IsNullOrEmpty(_url))
             {
                 if (!string.IsNullOrEmpty(_default))

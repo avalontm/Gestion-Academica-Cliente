@@ -22,7 +22,6 @@ namespace agac.Managers
 
             if (user != null)
             {
-                user.avatar = ApiManager.HOST + user.avatar;
                 token = _token;
                 isLogin = true;
             }
@@ -30,9 +29,9 @@ namespace agac.Managers
             {
                 token = string.Empty;
                 isLogin = false;
-
             }
 
+            SettingsManager.Settings.User = user;
             SettingsManager.Settings.Token = token;
             SettingsManager.Save();
             ApiManager.onSetToken(token);

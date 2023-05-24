@@ -92,7 +92,7 @@
 								<RowDefinition Height="Auto"/>
 							</Grid.RowDefinitions>
 
-								<Image Grid.Row="0" Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="28" RenderOptions.BitmapInterpolationMode="HighQuality">
+								<Image Grid.Row="0" Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result}" Height="28" RenderOptions.BitmapInterpolationMode="HighQuality">
 									<Image.Clip>
 										<EllipseGeometry Rect="0,0,28,28" />
 									</Image.Clip>

@@ -8,8 +8,7 @@ namespace agac.Models
 {
     public class SettingsModel
     {
-        public string? Account { set; get; }
-        public string? Password { set; get; }
+        public UserModel? User { set; get; }
         public string? Token { set; get; }
     }
 }

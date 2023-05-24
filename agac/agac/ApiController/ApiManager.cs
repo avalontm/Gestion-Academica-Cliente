@@ -17,7 +17,7 @@ namespace agac
         public readonly static string HOST = "https://avalontm.info";
 #endif
 
-        static WebClientManager _client;
+        static WebClientManager? _client;
         public static WebClientManager client => _client ?? (_client = new WebClientManager(string.Format("{0}/api", HOST)));
 
         public static void onSetToken(string token)

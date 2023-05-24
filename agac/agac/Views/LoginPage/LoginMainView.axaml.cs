@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
+using System.Diagnostics;
 
 namespace agac.Views.LoginPage;
 
@@ -35,9 +36,6 @@ public partial class LoginMainView : UserControl
     public LoginMainView()
     {
         InitializeComponent();
-        email = SettingsManager.Settings.Account;
-        password = SettingsManager.Settings.Password;
-
         DataContext = this;
     }
 
@@ -65,15 +63,13 @@ public partial class LoginMainView : UserControl
             return;
         }
 
+        UserModel user = response.data[0].ToConvert<UserModel>();
         string token = response.data[1].ToString();
-        SesionManager.onSetSesion(response.data[0].ToConvert<UserModel>(), token);
+
+        SesionManager.onSetSesion(user, token);
 
         if (SesionManager.isLogin)
         {
-            SettingsManager.Settings.Account = email;
-            SettingsManager.Settings.Password = password;
-            SettingsManager.Settings.Token = token;
-            SettingsManager.Save();
             await AppManager.ToPage(new MainViewControl());
         }
 
