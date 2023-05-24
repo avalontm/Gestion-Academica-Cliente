@@ -105,12 +105,7 @@ public partial class LoadingView : UserControl, INotifyPropertyChanged
 
         ApiManager.onSetToken(SettingsManager.Settings?.Token);
 
-        bool status = await SesionManager.onDevice();
-
-        if (status)
-        {
-            user = await ApiManager.onAuth();
-        }
+        user = await ApiManager.onAuth();
 
         Debug.WriteLine($"[AUTH] {JsonConvert.SerializeObject(user)}");
 
@@ -119,6 +114,13 @@ public partial class LoadingView : UserControl, INotifyPropertyChanged
             await AppManager.ToPage(new LoginMainView());
             isAnimation = false;
             return;
+        }
+
+        bool device_register = await SesionManager.onDevice();
+
+        if(device_register)
+        {
+            Debug.WriteLine($"[Device] Se registro correctamente.");
         }
 
         SesionManager.onSetSesion(user, SettingsManager.Settings?.Token);
