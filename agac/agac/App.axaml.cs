@@ -3,7 +3,7 @@ using agac.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Plugin.Firebase.CloudMessaging;
+using Plugin.FirebasePushNotification;
 using System;
 using System.Diagnostics;
 
@@ -29,25 +29,31 @@ namespace agac
 
             try
             {
-                CrossFirebaseCloudMessaging.Current.CheckIfValidAsync();
-                CrossFirebaseCloudMessaging.Current.TokenChanged += Current_TokenChanged;
-                CrossFirebaseCloudMessaging.Current.NotificationReceived += Current_NotificationReceived;
+                Debug.WriteLine($"[Token] {CrossFirebasePushNotification.Current.Token}");
+                CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+                CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+
             base.OnFrameworkInitializationCompleted();
         }
 
-        private void Current_NotificationReceived(object? sender, Plugin.Firebase.CloudMessaging.EventArgs.FCMNotificationReceivedEventArgs e)
+        void Current_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
         {
-            Debug.WriteLine($"[NotificationReceived] {e.Notification}");
+            Debug.WriteLine($"[OnNotificationReceived]");
+
+            foreach (var data in e.Data)
+            {
+                Debug.WriteLine($"[DATA] {data.Key} = {data.Value}");
+            }
         }
 
-        private void Current_TokenChanged(object? sender, Plugin.Firebase.CloudMessaging.EventArgs.FCMTokenChangedEventArgs e)
+        public void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
         {
-            Debug.WriteLine($"[TokenChanged] {e.Token}");
+            Debug.WriteLine($"[OnTokenRefresh] {e.Token}");
         }
     }
 }

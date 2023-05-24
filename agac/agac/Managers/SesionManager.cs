@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using agac.Models;
-using Plugin.Firebase.CloudMessaging;
+using Plugin.FirebasePushNotification;
 
 namespace agac.Managers
 {
@@ -40,10 +40,10 @@ namespace agac.Managers
 
         public static async Task<bool> onDevice()
         {
-            if (CrossFirebaseCloudMessaging.IsSupported)
+            if (CrossFirebasePushNotification.IsSupported)
             {
                 //Registramos el dispositivo para que reciba notificaciones del servidor.
-                string token = await CrossFirebaseCloudMessaging.Current.GetTokenAsync();
+                string token = CrossFirebasePushNotification.Current.Token;
                 string model = CrossDeviceInfo.Current.Model;
                 string name = CrossDeviceInfo.Current.DeviceName;
                 string platform = CrossDeviceInfo.Current.Platform.ToString();

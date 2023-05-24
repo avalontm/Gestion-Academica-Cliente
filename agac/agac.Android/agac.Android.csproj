@@ -26,6 +26,9 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.35" />
+    <PackageReference Include="Xamarin.Firebase.Common" Version="120.3.2" />
+    <PackageReference Include="Xamarin.Firebase.Messaging" Version="123.1.2" />
   </ItemGroup>
 
   <ItemGroup>
