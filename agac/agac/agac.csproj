@@ -19,6 +19,7 @@
     <None Remove="Assets\icon_email.png" />
     <None Remove="Assets\icon_ingresar.png" />
     <None Remove="Assets\icon_menu.png" />
+    <None Remove="Assets\icon_off.png" />
     <None Remove="Assets\logo.png" />
     <None Remove="Assets\logo_icon.ico" />
     <None Remove="Assets\profile.png" />

@@ -13,8 +13,7 @@
 		<dic:MenuBackVisibleToConverter x:Key="MenuBackVisibleToConverter"/>
 		<dic:ImageFromUrlConvert x:Key="ImageFromUrlConvert"/>
 	</UserControl.Resources>
-
-
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>

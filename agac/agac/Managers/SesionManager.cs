@@ -42,6 +42,9 @@ namespace agac.Managers
         {
             if (CrossFirebasePushNotification.IsSupported)
             {
+                //Suscripción al tipico general
+                CrossFirebasePushNotification.Current.Subscribe("general");
+
                 //Registramos el dispositivo para que reciba notificaciones del servidor.
                 string token = CrossFirebasePushNotification.Current.Token;
                 string model = CrossDeviceInfo.Current.Model;

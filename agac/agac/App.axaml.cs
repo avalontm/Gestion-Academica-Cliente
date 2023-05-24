@@ -30,6 +30,12 @@ namespace agac
             try
             {
                 Debug.WriteLine($"[Token] {CrossFirebasePushNotification.Current.Token}");
+
+                foreach (string topic in CrossFirebasePushNotification.Current.SubscribedTopics)
+                {
+                    Debug.WriteLine($"[Subscribed] {topic}");
+                }
+             
                 CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
                 CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
             }

@@ -7,7 +7,9 @@ using agac.Views.ProfilePage;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace agac.Views.MainPage;
@@ -70,6 +72,17 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         }
     }
 
+    List<ToolbarModel> _toolbar;
+    public List<ToolbarModel> Toolbar
+    {
+        get { return _toolbar; }
+        set
+        {
+            _toolbar = value;
+            OnPropertyChanged("Toolbar");
+        }
+    }
+
     public static MainViewControl? Instance { private set; get; }
 
     public MainViewControl()
@@ -84,6 +97,7 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         Instance = this;
         User = SesionManager.user;
         MenuCalendar();
+        RegisterDevice();
         base.OnLoaded();
     }
 
@@ -100,6 +114,15 @@ public partial class MainViewControl : UserControl, INotifyPropertyChanged
         gridMain.Children.Add(control);
     }
 
+    async void RegisterDevice()
+    {
+        bool device_register = await SesionManager.onDevice();
+
+        if (device_register)
+        {
+            Debug.WriteLine($"[Device] Se registro correctamente.");
+        }
+    }
 
     public async void MenuCalendar()
     {

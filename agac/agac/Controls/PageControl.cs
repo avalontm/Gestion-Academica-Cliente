@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using agac.Views.MainPage;
+using Avalonia;
+using Avalonia.Metadata;
+using agac.Models;
 
 namespace agac.Controls
 {
@@ -37,13 +40,44 @@ namespace agac.Controls
             }
         }
 
+        List<ToolbarModel> _toolbar;
+        public List<ToolbarModel> Toolbar
+        {
+            get { return _toolbar; }
+            set
+            {
+                _toolbar = value;
+                if (MainViewControl.Instance != null)
+                {
+                    MainViewControl.Instance.Toolbar = _toolbar;
+                }
+                OnPropertyChanged("Toolbar");
+            }
+        }
 
         protected override void OnLoaded()
         {
             base.OnLoaded();
+            OnToolbar();
+
             if (MainViewControl.Instance != null)
             {
                 MainViewControl.Instance.Title = Title;
+            }
+        }
+
+        public virtual void OnToolbar()
+        {
+            if (MainViewControl.Instance != null)
+            {
+                if (Toolbar == null)
+                {
+                    MainViewControl.Instance.Toolbar = null;
+                    return;
+                }
+
+                MainViewControl.Instance.Toolbar = new List<ToolbarModel>(Toolbar);
+                
             }
         }
     }

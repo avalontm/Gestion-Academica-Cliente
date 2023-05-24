@@ -34,7 +34,22 @@
 			<Label Grid.Column="1" Margin="5,0,5,0" Content="{Binding Title, FallbackValue='Titulo'}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" FontWeight="Bold"/>
 
 			<Grid Grid.Column="2">
-				
+				<ItemsControl Items="{Binding Toolbar}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal"/>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<Button Margin="2" CornerRadius="24" Width="42" Height="42" Command="{Binding command}">
+								<Button.Content>
+									<Image Margin="5" Source="{Binding icon}"/>
+								</Button.Content>
+							</Button>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
 			</Grid>
 		</Grid>
 
