@@ -22,6 +22,7 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0">
+			
 			<Image Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="128" RenderOptions.BitmapInterpolationMode="HighQuality">
 				<Image.Clip>
 					<EllipseGeometry Rect="0,0,128,128" />

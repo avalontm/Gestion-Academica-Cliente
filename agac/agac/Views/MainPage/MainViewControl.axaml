@@ -59,7 +59,7 @@
 							</Grid.RowDefinitions>
 
 							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_calendario.png" Height="28"/>
-							<Label Grid.Row="1" Margin="0" Content="Calendario" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+							<Label Grid.Row="1" Margin="0" Content="Calendario" FontSize="12" FontWeight="DemiBold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
 
 						</Grid>
 					</Button.Content>
@@ -76,7 +76,7 @@
 							</Grid.RowDefinitions>
 
 							<Image Grid.Row="0" Margin="5" Source="/Assets/icon_curso.png" Height="28"/>
-							<Label Grid.Row="1" Margin="0" Content="Mis Cursos" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+							<Label Grid.Row="1" Margin="0" Content="Mis Cursos" FontSize="12" FontWeight="DemiBold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
 
 						</Grid>
 					</Button.Content>
@@ -99,7 +99,7 @@
 								</Image>
 							
 							
-							<Label Grid.Row="1" Margin="0" Content="Mi Perfil" FontSize="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
+							<Label Grid.Row="1" Margin="0" Content="Mi Perfil" FontSize="12" FontWeight="DemiBold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{StaticResource	Black}"/>
 						</Grid>
 					</Button.Content>
 				</Button>
