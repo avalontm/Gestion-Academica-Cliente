@@ -2,10 +2,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		     xmlns:dic="clr-namespace:agac.Dictionaries"
+			 xmlns:manager="clr-namespace:agac.Managers"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
 		     xmlns:page="using:agac.Controls"
              x:Class="agac.Views.ProfilePage.ProfileMainView"
 			 Title="Mi Perfil">
 	
+	<UserControl.Resources>
+		<dic:MenuBackVisibleToConverter x:Key="MenuBackVisibleToConverter"/>
+		<dic:ImageFromUrlConvert x:Key="ImageFromUrlConvert"/>
+	</UserControl.Resources>
 
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0">
+			<Image Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="128" RenderOptions.BitmapInterpolationMode="HighQuality">
+				<Image.Clip>
+					<EllipseGeometry Rect="0,0,128,128" />
+				</Image.Clip>
+			</Image>
+			
+			<Label Margin="5" Content="{Binding User.nombre, FallbackValue='Mi Nombre'}" Foreground="{StaticResource	Black}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+		</StackPanel>
+
+
+		<StackPanel Grid.Row="1">
+			
+		</StackPanel>
+	</Grid>
 </page:PageControl>

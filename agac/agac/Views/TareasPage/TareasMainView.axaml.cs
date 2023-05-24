@@ -1,5 +1,6 @@
 using agac.ApiController;
 using agac.Controls;
+using agac.Managers;
 using agac.Models;
 using Avalonia;
 using Avalonia.Controls;
@@ -64,8 +65,13 @@ public partial class TareasMainView : PageControl
         await DialogManager.Close();
     }
 
-    public void onTarea(object obj)
+    public async void onTarea(object obj)
     {
+        TareaModel item = obj as TareaModel;
 
+        TareaInfoView page = new TareaInfoView();
+        page.tarea = item;
+
+        await AppManager.ToNatigate(page);
     }
 }
