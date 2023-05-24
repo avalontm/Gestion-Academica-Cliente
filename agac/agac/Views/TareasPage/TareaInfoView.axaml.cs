@@ -34,8 +34,6 @@ public partial class TareaInfoView : PageControl
 
     async void onLoadTarea()
     {
-        Title = tarea.titulo;
         _htmlPanel.Text = tarea.contenido;
-        //tarea = ApiTarea.Find(tarea.id);
     }
 }

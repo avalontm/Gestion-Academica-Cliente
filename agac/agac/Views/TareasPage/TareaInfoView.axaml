@@ -9,6 +9,19 @@
 			 Title="Tarea" x:Name="root">
 
 	<Grid>
-		<Avalonia:HtmlPanel x:Name="_htmlPanel" Margin="5"/>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0">
+			<Label Margin="5" Content="{Binding tarea.titulo}" FontWeight="Bold" Foreground="{StaticResource	Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+		</Grid>
+		
+		<Avalonia:HtmlPanel Grid.Row="1" x:Name="_htmlPanel" Margin="5"/>
+
+		<Grid Grid.Row="0" Margin="5">
+		</Grid>	
 	</Grid>
 </page:PageControl>
