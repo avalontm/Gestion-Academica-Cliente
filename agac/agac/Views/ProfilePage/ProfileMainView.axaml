@@ -21,19 +21,41 @@
 		</Grid.RowDefinitions>
 
 		<StackPanel Grid.Row="0">
-			
-			<Image Margin="5" DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="128" RenderOptions.BitmapInterpolationMode="HighQuality">
-				<Image.Clip>
-					<EllipseGeometry Rect="0,0,128,128" />
-				</Image.Clip>
-			</Image>
-			
-			<Label Margin="5" Content="{Binding User.nombre, FallbackValue='Mi Nombre'}" Foreground="{StaticResource	Black}" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+			<Border Margin="5"  Padding="2" Background="{StaticResource	GrayLight}" BorderBrush="{StaticResource Gray}" BorderThickness="5" CornerRadius="64" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Image DataContext="{Binding User.avatar, Converter={StaticResource ImageFromUrlConvert}}" Source="{Binding Result, FallbackValue='/Assets/profile.png'}" Height="120" Width="120" RenderOptions.BitmapInterpolationMode="HighQuality">
+					<Image.Clip>
+						<EllipseGeometry Rect="0,0,120,120" />
+					</Image.Clip>
+				</Image>
+
+			</Border>
+
+			<TextBlock Margin="5" Text="{Binding User.nombre, FallbackValue='Mi Nombre'}" Foreground="{StaticResource	Black}" FontWeight="Bold" TextWrapping="Wrap" MaxLines="3" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
 		</StackPanel>
 
+		<Grid Grid.Row="1">
+			<ScrollViewer >
+				<StackPanel>
 
-		<StackPanel Grid.Row="1">
-			
-		</StackPanel>
+					<StackPanel Margin="5">
+						<Label Content="Email" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+						<TextBox Text="{Binding	 User.email}" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+					</StackPanel>
+
+					<StackPanel Margin="5">
+						<Label Content="Acceso" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+						<TextBox Text="{Binding	 User.rol_nombre}" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+					</StackPanel>
+
+					<StackPanel Margin="5">
+						<Label Content="Codigo de control" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+						<TextBox Text="{Binding	 User.codigo}" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+					</StackPanel>
+
+				</StackPanel>
+		
+		</ScrollViewer>
+		</Grid>
 	</Grid>
 </page:PageControl>
