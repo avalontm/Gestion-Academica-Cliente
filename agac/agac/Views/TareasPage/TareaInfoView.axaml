@@ -16,10 +16,15 @@
 		</Grid.RowDefinitions>
 
 		<Grid Grid.Row="0">
-			<Label Margin="5" Content="{Binding tarea.titulo}" FontWeight="Bold" Foreground="{StaticResource	Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+				<TextBlock Margin="5" Text="{Binding tarea.titulo}" FontWeight="Bold" FontSize="18" TextWrapping="Wrap" MaxLines="2" Foreground="{StaticResource Black}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+		</Grid>
+
+		<Grid Grid.Row="1">
+			<ScrollViewer>
+				<Avalonia:HtmlPanel  x:Name="_htmlPanel" Margin="5"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+			</ScrollViewer>
 		</Grid>
 		
-		<Avalonia:HtmlPanel Grid.Row="1" x:Name="_htmlPanel" Margin="5"/>
 
 		<Grid Grid.Row="0" Margin="5">
 		</Grid>	

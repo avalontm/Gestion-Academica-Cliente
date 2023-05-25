@@ -13,7 +13,7 @@
 				<ItemsControl Items="{Binding tareas}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate>
-							<Button Height="64" Margin="5" Command="{Binding ElementName=root, Path=onTarea}" CommandParameter="{Binding }" Background="{StaticResource GrayLight}" CornerRadius="5" HorizontalAlignment="Stretch" BorderBrush="{StaticResource GrayBorder}" BorderThickness="1">
+							<Button MinHeight="64" Margin="5" Command="{Binding ElementName=root, Path=onTarea}" CommandParameter="{Binding }" Background="{StaticResource GrayLight}" CornerRadius="5" HorizontalAlignment="Stretch" BorderBrush="{StaticResource GrayBorder}" BorderThickness="1">
 								<Grid>
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="Auto"/>
@@ -30,7 +30,8 @@
 											<RowDefinition Height="Auto"/>
 										</Grid.RowDefinitions>
 
-										<Label Grid.Row="0" Content="{Binding titulo}" FontWeight="Bold" FontSize="18" Foreground="{StaticResource Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+										<TextBlock Grid.Row="0" Text="{Binding titulo}" FontWeight="Bold" FontSize="18" TextWrapping="Wrap" MaxLines="2" Foreground="{StaticResource Black}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
 										<Label Grid.Row="1" Content="{Binding fecha_entrega}" FontWeight="Normal" FontSize="14" Foreground="{StaticResource Black}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
 
 									</Grid>

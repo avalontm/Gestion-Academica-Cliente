@@ -25,5 +25,6 @@ namespace agac.Android
             FirebasePushNotificationManager.ProcessIntent(this, intent);
             base.OnNewIntent(intent);
         }
+
     }
 }

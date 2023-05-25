@@ -21,6 +21,12 @@
 
 		<!-- NAVEGACION -->
 		<Grid Grid.Row="0" Background="{StaticResource MenuBackground}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition Width="*"/>
@@ -53,17 +59,29 @@
 			</Grid>
 		</Grid>
 
+		<Border Grid.Row="1" Background="Transparent" BorderBrush="#e6e6e6" BorderThickness="1" />
+	</Grid>
+			
 		<!-- PANTALLA PRINCIPAL-->
 		<Grid Grid.Row="1" x:Name="gridMain"/>
 
 		<!-- MENUS -->
 		<Grid Grid.Row="2" Background="{StaticResource MenuBackground}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+
+		<Border Grid.Row="0" Background="Transparent" BorderBrush="#e6e6e6" BorderThickness="1" />
+				
+		<Grid Grid.Row="1"> 
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
-
+		
 			<Grid Grid.Column="0">
 				<Button Margin="2" Command="{Binding MenuCalendar}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 					<Button.Content>
@@ -119,8 +137,9 @@
 					</Button.Content>
 				</Button>
 			</Grid>
-
+			</Grid>
 		</Grid>
 	</Grid>
+</Grid>
 	
 </UserControl>

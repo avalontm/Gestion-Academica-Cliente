@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="ite" android:icon="@drawable/Icon" android:usesCleartextTraffic="true"/>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<application android:label="ite" android:icon="@drawable/Icon" android:usesCleartextTraffic="true" />
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
 </manifest>
