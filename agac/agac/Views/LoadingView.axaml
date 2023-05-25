@@ -6,11 +6,10 @@
              x:Class="agac.Views.LoadingView">
 
 	<Grid>
-		<StackPanel VerticalAlignment="Center" MaxWidth="600">
+		<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
 			<Image x:Name="imgLogo"
 				 Source="/Assets/logo.png"
-				 Height="200"
-				 HorizontalAlignment="Center" />
+				 Height="100"/>
 		</StackPanel>
 	</Grid>
 	

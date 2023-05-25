@@ -4,6 +4,7 @@ using Android.OS;
 using Avalonia;
 using Avalonia.Android;
 using Avalonia.ReactiveUI;
+using Splat;
 using Application = Android.App.Application;
 
 namespace agac.Android
@@ -12,7 +13,10 @@ namespace agac.Android
     public class SplashActivity : AvaloniaSplashActivity<App>
     {
         protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
-        {
+        { 
+            //Registramos 
+            Bootstrapper.Register(Locator.CurrentMutable, Locator.Current);
+
             return base.CustomizeAppBuilder(builder)
                 .UseReactiveUI();
         }

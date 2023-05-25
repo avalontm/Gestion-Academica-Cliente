@@ -19,7 +19,7 @@ namespace agac
             WaitDialogView.Instance.Close();
         }
 
-        public static async Task<bool> Display(string title, string message, string accept, string cancel = "")
+        public static async Task<bool> Display(string title, string message, string accept = "OK", string cancel = "")
         {
             await DialogView.Instance.Show(title, message, accept, cancel);
             return DialogView.Instance.Response;
